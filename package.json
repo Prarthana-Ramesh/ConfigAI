@@ -1,0 +1,27 @@
+{
+  "name": "configai",
+  "version": "1.0.0",
+  "description": "A Configurable Agentic Browser designed to deliver accurate, context-aware, and domain-focused knowledge retrieval. It allows configuration for one specific niche at a time, ensuring deep contextual reasoning and relevant information access within that domain.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prarthana-Ramesh/ConfigAI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Prarthana-Ramesh/ConfigAI/issues"
+  },
+  "homepage": "https://github.com/Prarthana-Ramesh/ConfigAI#readme",
+  "devDependencies": {
+    "electron": "^39.1.1"
+  },
+  "dependencies": {
+    "cloving": "^0.3.20"
+  }
+}
