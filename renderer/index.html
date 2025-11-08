@@ -23,6 +23,14 @@
             --accent-hover: #2563eb;
             --summary-bg: rgba(255, 255, 255, 0.95);
             --summary-border: rgba(0, 0, 0, 0.1);
+            /* Configuration specific colors */
+            --config-bg: #fff;
+            --config-shadow: rgba(80,100,120,0.08);
+            --config-input-bg: #f5f7fa;
+            --config-upload-bg: #eef2f7;
+            --config-text: #232a36;
+            --config-subtext: #69748a;
+            --config-border: #a2a9b6;
         }
 
         html.dark-mode {
@@ -36,6 +44,14 @@
             --accent-hover: #93c5fd;
             --summary-bg: rgba(20, 20, 20, 0.95);
             --summary-border: rgba(255, 255, 255, 0.1);
+            /* Configuration dark mode colors */
+            --config-bg: #1a1a1a;
+            --config-shadow: rgba(0, 0, 0, 0.2);
+            --config-input-bg: #2a2a2a;
+            --config-upload-bg: #2a2a2a;
+            --config-text: #f5f5f5;
+            --config-subtext: #b0b0b0;
+            --config-border: #404040;
         }
 
         body {
@@ -414,6 +430,178 @@
             transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
         }
+        .sidebar_new {
+            font-family: 'Inter', sans-serif;
+            position: fixed;
+            right: 0;
+            top: 70px;
+            bottom: 0;
+            width: 350px;
+            background: var(--config-bg);
+            border-radius: 20px 0 0 0;
+            box-shadow: 0 4px 24px var(--config-shadow);
+            padding: 24px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 45;
+            display: flex;
+            flex-direction: column;
+            max-height: calc(100vh - 70px);
+            overflow: hidden; /* container hides overflow; inner content scrolls */
+        }
+
+        .sidebar_new.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-header_new {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .sidebar-header_new h2 {
+            font-size: 1.45rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            color: var(--config-text);
+        }
+
+        .sidebar-close_new {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--config-subtext);
+            transition: color 0.2s;
+        }
+        .sidebar-close_new:hover { color: var(--config-text); }
+
+        .config-section_new {
+            margin-bottom: 28px;
+            background: var(--bg-secondary);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Content area inside the config sidebar: make it scrollable */
+        .config-content_new {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-right: 8px; /* provide room for scrollbar */
+        }
+
+        .config-section-header_new {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .config-icon_new {
+            font-size: 1.7rem;
+            color: var(--accent);
+        }
+
+        .accent_new { color: var(--accent); }
+
+        .config-subtext_new {
+            font-size: 0.95rem;
+            color: var(--config-subtext);
+            margin-bottom: 10px;
+        }
+
+        .file-upload_new {
+            display: block;
+            background: var(--config-upload-bg);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border: 2px dashed var(--config-border);
+            transition: all 0.3s ease;
+        }
+        .file-upload_new:hover {
+            border-color: var(--accent);
+            background: var(--bg-tertiary);
+        }
+        .file-upload_new input { display: none; }
+        .upload-label_new { color: var(--accent); font-weight: 500; }
+
+        .file-info_new {
+            font-size: 0.8rem;
+            color: var(--config-subtext);
+            margin-top: 6px;
+        }
+
+        .styled-input_new, textarea.styled-input_new {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 6px;
+            font-size: 1rem;
+            color: var(--config-text);
+            background: var(--config-upload-bg);
+            box-shadow: 0 1px 3px rgba(80,100,120,0.03);
+            margin-bottom: 8px;
+        }
+
+        .styled-input_new:focus, textarea.styled-input_new:focus {
+            outline: 2px solid #1976d2;
+            background: var(--config-input-bg);
+        }
+
+        .config-actions_new {
+            display: flex;
+            gap: 10px;
+            justify-content: end;
+            margin-top: 18px;
+        }
+        .config-actions_new {
+            position: sticky;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0), var(--config-bg));
+            padding-top: 12px;
+            padding-bottom: 6px;
+            z-index: 10;
+        }
+
+        .accent-btn_new {
+            background: linear-gradient(90deg,#1976d2,#62c1fa);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(25,118,210,0.14);
+        }
+        .accent-btn_new:hover { background: linear-gradient(90deg,#165ab8,#55aedb); }
+
+        .neutral-btn_new {
+            background: #eff1f5;
+            color: #232a36;
+            border: 1px solid #dde1e9;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .neutral-btn_new:hover { background: #e2e7ed; }
+
+        .hr_new {
+            border: none;
+            border-top: 1.5px solid #eff1f5;
+            margin: 18px 0 18px 0;
+        }
+
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -454,7 +642,7 @@
 <body>
     <!-- Header -->
     <div class="header">
-        <div class="logo">◆ AgentBrowser</div>
+        <div class="logo">◆ ConfigAI</div>
         <div class="search-container">
             <div class="search-bar">
                 <span class="search-icon">🔍</span>
@@ -465,6 +653,7 @@
             <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
                 ☀️
             </button>
+            <button class="theme-toggle" id="configToggle" title="Open Configuration Panel">⚙️</button>
         </div>
     </div>
 
@@ -533,6 +722,54 @@
                 <button id="aiSendBtn">Send</button>
             </div>
         </div>
+    <!-- Import a modern font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<div class="sidebar_new" id="configSidebar_new">
+    <div class="sidebar-header_new">
+        <h2>Domain Configuration</h2>
+        <button class="sidebar-close_new" id="closeConfig_new">&times;</button>
+    </div>
+    <div class="config-content_new">
+        <div class="config-section_new">
+            <div class="config-section-header_new">
+                <span class="material-icons config-icon_new accent_new">upload_file</span>
+                <h3>Upload Resources</h3>
+            </div>
+            <p class="config-subtext_new">Add your domain-specific reference materials for context-aware retrieval.</p>
+            <label class="file-upload_new">
+                <input type="file" id="configFiles_new" multiple accept=".pdf,.txt,.csv,.docx" />
+                <span class="upload-label_new">Click or drop files here</span>
+            </label>
+            <p class="file-info_new">Supported formats: PDF, TXT, CSV, DOCX</p>
+        </div>
+        <div class="hr_new"></div>
+        <div class="config-section_new">
+            <div class="config-section-header_new">
+                <span class="material-icons config-icon_new accent_new">label</span>
+                <h3>Domain Metadata</h3>
+            </div>
+            <p class="config-subtext_new">Define the scope and subfields for this configuration.</p>
+            <input class="styled-input_new" type="text" id="domainName_new" placeholder="Domain name (e.g., Electrical Engineering)" />
+            <textarea class="styled-input_new" id="domainTopics_new" placeholder="Enter topics or subfields, separated by commas"></textarea>
+        </div>
+        <div class="hr_new"></div>
+        <div class="config-section_new">
+            <div class="config-section-header_new">
+                <span class="material-icons config-icon_new accent_new">link</span>
+                <h3>Concept Relations</h3>
+            </div>
+            <p class="config-subtext_new">Establish relationships between core concepts for better contextual mapping.</p>
+            <textarea class="styled-input_new" id="domainRelations_new" placeholder="e.g., Signal Processing ↔ Neural Networks"></textarea>
+        </div>
+        <div class="config-actions_new">
+            <button class="accent-btn_new" id="saveConfig_new">Save</button>
+            <button class="neutral-btn_new" id="resetConfig_new">Reset</button>
+        </div>
+    </div>
+</div>
+
+
     </div>
 
     <!-- AI Toggle Button -->
@@ -663,6 +900,64 @@
                 // Here you would integrate with your backend API
             }
         });
+      // Configuration Sidebar
+const configToggle = document.getElementById('configToggle');
+const configSidebar = document.getElementById('configSidebar_new');
+const closeConfig = document.getElementById('closeConfig_new');
+const configFiles = document.getElementById('configFiles');
+
+if (configToggle && configSidebar) {
+    configToggle.addEventListener('click', () => {
+        configSidebar.classList.add('active');
+        document.body.classList.add('config-sidebar-open');
+    });
+}
+
+if (closeConfig && configSidebar) {
+    closeConfig.addEventListener('click', () => {
+        configSidebar.classList.remove('active');
+        document.body.classList.remove('config-sidebar-open');
+    });
+}
+
+// Close config sidebar when clicking outside
+document.addEventListener('click', (e) => {
+    if (configSidebar && !configSidebar.contains(e.target) && 
+        (!configToggle || !configToggle.contains(e.target))) {
+        configSidebar.classList.remove('active');
+        document.body.classList.remove('config-sidebar-open');
+    }
+});
+
+// Handle File Upload
+configFiles.addEventListener('change', (e) => {
+    const files = Array.from(e.target.files).map(f => f.name);
+    alert(`Uploaded files:\n${files.join('\n')}`);
+});
+
+// Save Configuration
+document.getElementById('saveConfig').addEventListener('click', () => {
+    const domain = document.getElementById('domainName').value;
+    const topics = document.getElementById('domainTopics').value;
+    const relations = document.getElementById('domainRelations').value;
+
+    if (!domain.trim()) {
+        alert("Please enter a domain name before saving.");
+        return;
+    }
+
+    console.log("Configuration Saved:", { domain, topics, relations });
+    alert(`Configuration for '${domain}' saved successfully!`);
+});
+
+// Reset Configuration
+document.getElementById('resetConfig').addEventListener('click', () => {
+    document.getElementById('domainName').value = '';
+    document.getElementById('domainTopics').value = '';
+    document.getElementById('domainRelations').value = '';
+    configFiles.value = '';
+});
+
     </script>
 </body>
 </html>
